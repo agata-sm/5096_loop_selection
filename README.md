@@ -29,6 +29,8 @@ To install the scripts simply type
 git clone https://github.com/agata-sm/5096_loop_selection
 ```
 
+Each script displays help message when option `-h` is used instead of other command line paramaters.
+
 The scripts were tested under `perl (v5.26.2)`. There is no guarantee they will work under any other `perl` version, especially the older ones.
 
 
