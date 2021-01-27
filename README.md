@@ -15,7 +15,7 @@ Starting from the "raw" result of loop detection by  `hicDetectLoops`:
 
 2. Selected loops from (1) are annotated using the following information: CTCF peaks, TAD, A/B compartment, closest genomic feature, distance to the closest region involved in chromatn loop formation.
 
-3. The annotated list can be further filtered by 
+3. The annotated list can be further filtered by genomic distance and compartment.
 
 
 ## Installation 
