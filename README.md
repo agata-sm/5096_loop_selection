@@ -85,6 +85,8 @@ sort-bed sample.hicDetectLoops.loopregion.bed >sample.hicDetectLoops.loopregion.
 closest-features --no-overlaps --dist --closest sample.single_interactor.loop_regions.bed sample.hicDetectLoops.loopregion.sorted.bed> sample.single_interactor.loop_regions.sorted.loopregion.bed
 ```
 
+* `mm10.chrom.sizes` downloaded from [UCSC](https://hgdownload-test.gi.ucsc.edu/goldenPath/mm10/bigZips/mm10.chrom.sizes)
+
 Finally, to annotate loops with functional features:
 
 ```
@@ -100,7 +102,7 @@ Genes="sample.single_interactor.loop_regions.sorted.gene.bed"
 
 Outfile="sample.single_interactor.annotated.txt"
 
-perl annotate_loops.v.2.0.pl --loops $Loops --outfile $Outfile --compartments $Compart  --ctcf $Ctcf --genes_bedops $Genes --loops_bedops $LoopsBedops --chrom_sizes $Chroms
+perl $Scripts/annotate_loops.v.2.0.pl --loops $Loops --outfile $Outfile --compartments $Compart  --ctcf $Ctcf --genes_bedops $Genes --loops_bedops $LoopsBedops --chrom_sizes $Chroms
 ```
 
 ## Filtering
@@ -111,7 +113,7 @@ The annotated loops in files suffixed `single_interactor.annotated.txt` can be f
 The usage is:
 
 ```
-perl filter_loops.v.2.0.pl --infile $Infile --outfile $Outfile <filtering options>
+perl $Scripts/filter_loops.v.2.0.pl --infile $Infile --outfile $Outfile <filtering options>
 ```
 
 The filtering options available are:
@@ -129,6 +131,6 @@ Please note that the filtering options are hierarchical, i.e.`distance` needs to
 For example, to obtain a list of loops with intra-loop distance 1 Mb, distance to other regions involved in loop formation of minimum 30 kb and both loop regions within the closed chromatin compartment B:
 
 ```
-perl filter_loops.v.2.0.pl --infile $Infile --outfile $Outfile --distance 1000000 --loop_dist 30000 --compartment B
+perl $Scripts/filter_loops.v.2.0.pl --infile $Infile --outfile $Outfile --distance 1000000 --loop_dist 30000 --compartment B
 ```
 
