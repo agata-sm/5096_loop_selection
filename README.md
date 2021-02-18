@@ -57,7 +57,7 @@ First, prepare the features for annotation:
 
 * TAD and compartment: tab-delimited chromosome, start, end, compartmemt
 
-* closest features (i.e. genes)
+* closest features (i.e. genes) **sample.single_interactor.loop_regions.sorted.gene.bed**
 
 ```
 perl -ne 'chomp $_; unless ($_ =~ m/#/) {@cols = split /\t/; print "$cols[0]\t$cols[1]\t$cols[2]\n$cols[3]\t$cols[4]\t$cols[5]\n";}' $SingleInteractorLoops > sample.single_interactor.loop_regions.bed
@@ -77,7 +77,7 @@ perl -ne 'chomp $_; unless ($_ =~ m/#/) {@cols = split /\t/; $start=$cols[3]-1; 
 sort-bed Mus_musculus.GRCm38.102.chr.gene.bed >Mus_musculus.GRCm38.102.chr.gene.sorted.bed
 ```
 
-* closest loop
+* closest loop **sample.single_interactor.loop_regions.sorted.loopregion.bed**
 
 ```
 perl -ne 'chomp $_; unless ($_ =~ m/#/) {@cols = split /\t/; print "$cols[0]\t$cols[1]\t$cols[2]\n$cols[3]\t$cols[4]\t$cols[5]\n";}' $Loops >sample.hicDetectLoops.loopregion.bed
@@ -88,6 +88,7 @@ closest-features --no-overlaps --dist --closest sample.single_interactor.loop_re
 ```
 
 * `mm10.chrom.sizes` downloaded from [UCSC](https://hgdownload-test.gi.ucsc.edu/goldenPath/mm10/bigZips/mm10.chrom.sizes)
+
 
 Finally, to annotate loops with functional features:
 
@@ -115,6 +116,10 @@ The annotated loops in files suffixed `single_interactor.annotated.txt` can be f
 The usage is:
 
 ```
+Infile="/path/to/sample.single_interactor.annotated.txt"
+
+Outfile="/path/to/sample.single_interactor.annotated.filtered.txt"
+
 perl $Scripts/filter_loops.v.2.0.pl --infile $Infile --outfile $Outfile <filtering options>
 ```
 
