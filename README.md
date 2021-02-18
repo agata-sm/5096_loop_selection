@@ -128,7 +128,7 @@ The filtering options available are:
 
 * `--distance` internal loop distance, i.e. the minimal distance between the two interacting fragments in bp; max 2000000 as this was the cutoff used in loop identification;
 
-* `--loop_dist` minimal distance to other fragments involved in chromatin loop formation in bp;
+* `--loop_dist` minimal distance to other chromatin loop in bp;
 
 * `--compartment` the identity of the chromatin A/B compartment of both interacting regions;
 
