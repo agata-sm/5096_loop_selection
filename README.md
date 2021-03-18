@@ -123,6 +123,14 @@ Outfile="/path/to/sample.single_interactor.annotated.filtered.txt"
 perl $Scripts/filter_loops.v.2.0.pl --infile $Infile --outfile $Outfile <filtering options>
 ```
 
+or 
+
+```
+perl filter_loops.v.2.0.pl --infile sample.single_interactor.annotated.txt --outfile sample.single_interactor.annotated.filtered.txt <filtering options>
+```
+
+
+
 The filtering options available are:
 
 
