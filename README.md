@@ -105,13 +105,16 @@ Genes="sample.single_interactor.loop_regions.sorted.gene.bed"
 
 Outfile="sample.single_interactor.annotated.txt"
 
-perl $Scripts/annotate_loops.v.2.0.pl --loops $Loops --outfile $Outfile --compartments $Compart  --ctcf $Ctcf --genes_bedops $Genes --loops_bedops $LoopsBedops --chrom_sizes $Chroms
+perl annotate_loops.v.3.4.pl --loops $Loops --outfile $Outfile --compartments $Compart  --ctcf $Ctcf --genes_bedops $Genes --loops_bedops $LoopsBedops --chrom_sizes $Chroms
 ```
+
+Please be aware of script versions! The major version of scripts for annotation and filtering must match, as they produce different output. I.e. files processed by `annotate_loops.v.3.4.pl` must be filtered by `filter_loops.v.3.0.pl`.
+
 
 ## Filtering
 
 
-The annotated loops in files suffixed `single_interactor.annotated.txt` can be filtered using perl script filter_loops.v.2.0.pl.
+The annotated loops in files suffixed `single_interactor.annotated.txt` can be filtered using perl script `filter_loops.v.3.0.pl`.
 
 The usage is:
 
@@ -120,13 +123,13 @@ Infile="/path/to/sample.single_interactor.annotated.txt"
 
 Outfile="/path/to/sample.single_interactor.annotated.filtered.txt"
 
-perl $Scripts/filter_loops.v.2.0.pl --infile $Infile --outfile $Outfile <filtering options>
+perl $Scripts/filter_loops.v.3.0.pl --infile $Infile --outfile $Outfile <filtering options>
 ```
 
 or 
 
 ```
-perl filter_loops.v.2.0.pl --infile sample.single_interactor.annotated.txt --outfile sample.single_interactor.annotated.filtered.txt <filtering options>
+perl filter_loops.v.3.0.pl --infile sample.single_interactor.annotated.txt --outfile sample.single_interactor.annotated.filtered.txt <filtering options>
 ```
 
 
@@ -146,6 +149,6 @@ Please note that the filtering options are hierarchical, i.e.`distance` needs to
 For example, to obtain a list of loops with intra-loop distance 1 Mb, distance to other regions involved in loop formation of minimum 30 kb and both loop regions within the closed chromatin compartment B:
 
 ```
-perl $Scripts/filter_loops.v.2.0.pl --infile $Infile --outfile $Outfile --distance 1000000 --loop_dist 30000 --compartment B
+perl filter_loops.v.3.0.pl --infile sample.single_interactor.annotated.txt --outfile sample.single_interactor.annotated.filtered_1Mb_30kb_B.txt --distance 1000000 --loop_dist 30000 --compartment B
 ```
 
